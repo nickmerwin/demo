@@ -1,9 +1,9 @@
 GIT
   remote: git://github.com/lemurheavy/coveralls-ruby.git
-  revision: 20478d64583782fa9c6739e92acab53f4855f426
+  revision: e40627c80d9d0e97a27930c7381e566d5ba08052
   branch: feature/gitlab
   specs:
-    coveralls (0.8.11)
+    coveralls (0.8.12)
       json (~> 1.8)
       simplecov (~> 0.11.0)
       term-ansicolor (~> 1.3)
@@ -46,3 +46,6 @@ DEPENDENCIES
   coveralls!
   rake
   rspec
+
+BUNDLED WITH
+   1.10.6
