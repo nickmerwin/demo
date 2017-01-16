@@ -40,3 +40,9 @@ DEPENDENCIES
   coveralls
   rake
   rspec
+
+RUBY VERSION
+   ruby 2.1.2p95
+
+BUNDLED WITH
+   1.13.6
