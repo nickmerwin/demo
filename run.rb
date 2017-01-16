@@ -4,6 +4,10 @@ module Run
   extend self
 
   # hey look a comment that changed!
+  
+  def another_method
+    "yo"
+  end
 
   def this_is_covered
     1
