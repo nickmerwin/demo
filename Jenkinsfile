@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Build') {
       steps {
-        sh 'CI_BRANCH=$GIT_LOCAL_BRANCH bundle exec rspec spec/*'
+        sh 'CI_BRANCH=$GIT_BRANCH bundle exec rspec spec/*'
       }
     }
   }
