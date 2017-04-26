@@ -8,7 +8,8 @@ pipeline {
   stages {
     stage('Setup') {
       steps {
-        sh 'bundle'
+        sh '''gem i bundler
+bundle'''
       }
     }
     stage('Build') {
