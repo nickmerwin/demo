@@ -8,7 +8,8 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'bundle exec rspec spec/*'
+        sh '''bundle install
+bundle exec rspec spec/*'''
       }
     }
   }
