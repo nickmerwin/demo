@@ -1,16 +1,9 @@
 pipeline {
-  agent {
-    docker {
-      image 'ruby:2.1.2'
-    }
-    
-  }
+  agent any
   stages {
     stage('Build') {
       steps {
-        sh '''sleep 5
-whoami
-bundle
+        sh '''bundle
 bundle exec rspec spec/*'''
       }
     }
