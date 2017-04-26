@@ -3,8 +3,8 @@ pipeline {
   stages {
     stage('Setup') {
       steps {
-        sh '''gem i bundler
-bundle'''
+        sh '''sudo gem i bundler
+sudo bundle'''
       }
     }
     stage('Build') {
