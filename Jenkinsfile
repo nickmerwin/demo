@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'ruby:2.1-onbuild'
+      image 'ruby:2.4.1-onbuild'
     }
     
   }
