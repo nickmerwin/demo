@@ -11,6 +11,12 @@ pipeline {
         sh 'bundle exec rspec spec/*'
       }
     }
+    stage('Coveralls') {
+      steps {
+        sleep 10
+        sh 'ruby -r json -e "res = JSON.parse %x(curl -k https://enterprise-demo-2.coveralls.io/github/nickmerwin/demo.json); exit res[\'coverage_change\'] >= 0 ? 0 : 1"'
+      }
+    }
   }
   environment {
     COVERALLS_SERVICE_NAME = 'jenkins-enterprise'
