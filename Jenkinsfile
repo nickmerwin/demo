@@ -8,8 +8,7 @@ pipeline {
     }
     stage('Build') {
       steps {
-        sh '''printenv
-bundle exec rspec spec/*'''
+        sh 'bundle exec rspec spec/*'
       }
     }
   }
@@ -18,5 +17,6 @@ bundle exec rspec spec/*'''
     COVERALLS_ENDPOINT = 'https://enterprise-demo-2.coveralls.io'
     COVERALLS_REPO_TOKEN = 'k80tTMALlmaQOlMs23SvZDavemORnsiSi'
     CI = 'true'
+    CI_BRANCH = '$BRANCH_NAME'
   }
 }
