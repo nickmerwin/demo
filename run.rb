@@ -21,6 +21,10 @@ module Run
     1
   end
 
+  def uncovered
+    2
+  end
+
   # :nocov:
   def ignore_me
     0
