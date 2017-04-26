@@ -1,12 +1,11 @@
 pipeline {
-  agent any
-  stages {
-    stage('Setup') {
-      steps {
-        sh '''sudo gem i bundler
-sudo bundle'''
-      }
+  agent {
+    docker {
+      image 'ruby:2.4.1-onbuild'
     }
+    
+  }
+  stages {
     stage('Build') {
       steps {
         sh 'bundle exec rake'
