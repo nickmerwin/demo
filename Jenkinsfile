@@ -1,9 +1,19 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'rtyler/rvm:2.3.0'
+    }
+    
+  }
   stages {
+    stage('Setup') {
+      steps {
+        sh 'bundle'
+      }
+    }
     stage('Build') {
       steps {
-        sh 'bundle exec rspec'
+        sh 'bundle exec rake'
       }
     }
   }
