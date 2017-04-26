@@ -1,10 +1,14 @@
 pipeline {
   agent any
   stages {
+    stage('Setup') {
+      steps {
+        sh 'bundle --path "gems"'
+      }
+    }
     stage('Build') {
       steps {
-        sh '''bundle --path "gems"
-bundle exec rspec spec/*'''
+        sh 'bundle exec rspec spec/*'
       }
     }
   }
