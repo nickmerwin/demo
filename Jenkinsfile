@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'bundle exec rake'
+        sh 'bundle exec rspec'
       }
     }
   }
