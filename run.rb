@@ -22,7 +22,7 @@ module Run
   end
 
   def uncovered
-    2
+    3
   end
 
   # :nocov:
