@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh '''bundle
+        sh '''bundle --path "gems"
 bundle exec rspec spec/*'''
       }
     }
