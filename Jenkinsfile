@@ -8,7 +8,8 @@ pipeline {
     }
     stage('Build') {
       steps {
-        sh 'CI_BRANCH=$GIT_BRANCH bundle exec rspec spec/*'
+        sh '''printenv
+bundle exec rspec spec/*'''
       }
     }
   }
