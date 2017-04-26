@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Build') {
       steps {
-        sh 'bundle exec rspec spec/*'
+        sh 'CI_BRANCH=$GIT_LOCAL_BRANCH bundle exec rspec spec/*'
       }
     }
   }
@@ -17,6 +17,5 @@ pipeline {
     COVERALLS_ENDPOINT = 'https://enterprise-demo-2.coveralls.io'
     COVERALLS_REPO_TOKEN = 'k80tTMALlmaQOlMs23SvZDavemORnsiSi'
     CI = 'true'
-    CI_BRANCH = '$GIT_LOCAL_BRANCH'
   }
 }
