@@ -1,14 +1,10 @@
 pipeline {
-  agent {
-    docker {
-      image 'ruby:2.4.1-onbuild'
-    }
-    
-  }
+  agent any
   stages {
     stage('Setup') {
       steps {
-        sh 'bundle'
+        sh '''gem i bundler
+bundle'''
       }
     }
     stage('Build') {
