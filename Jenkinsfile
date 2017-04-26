@@ -1,11 +1,16 @@
 pipeline {
   agent {
     docker {
-      image 'ruby:2.1.2-onbuild'
+      image 'ruby:2.1.2'
     }
     
   }
   stages {
+    stage('Setup') {
+      steps {
+        sh 'bundle'
+      }
+    }
     stage('Build') {
       steps {
         sh 'bundle exec rspec'
