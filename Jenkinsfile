@@ -6,15 +6,9 @@ pipeline {
     
   }
   stages {
-    stage('Setup') {
-      steps {
-        sh '''gem i bundler
-bundle'''
-      }
-    }
     stage('Build') {
       steps {
-        sh 'bundle exec rspec'
+        sh 'bundle exec rspec spec/*'
       }
     }
   }
