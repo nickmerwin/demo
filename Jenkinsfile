@@ -8,7 +8,9 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh '''bundle
+        sh '''sleep 5
+whoami
+bundle
 bundle exec rspec spec/*'''
       }
     }
