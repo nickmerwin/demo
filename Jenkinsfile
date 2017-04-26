@@ -8,7 +8,10 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh '''bundle install
+        sh '''ruby -v
+pwd
+which bundle
+bundle install
 bundle exec rspec spec/*'''
       }
     }
