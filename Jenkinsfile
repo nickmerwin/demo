@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'rtyler/rvm:2.3.0'
+      image 'ruby:2.1-onbuild'
     }
     
   }
