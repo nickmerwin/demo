@@ -8,13 +8,21 @@ pipeline {
     }
     stage('Build') {
       steps {
-        sh 'bundle exec rspec spec/*'
+        parallel(
+          "Job 1": {
+            sh 'bundle exec rspec spec/run_spec.rb'
+            
+          },
+          "Job 2": {
+            sh 'bundle exec rspec spec/run2_spec.rb'
+            
+          }
+        )
       }
     }
-    stage('Coveralls') {
+    stage('Webhook') {
       steps {
-        sleep 10
-        sh 'ruby -r json -e "res = JSON.parse %x(curl -k https://enterprise-demo-2.coveralls.io/github/nickmerwin/demo.json); exit res[\'coverage_change\'] >= 0 ? 0 : 1"'
+        sh 'curl -k $COVERALLS_ENDPOINT/webhook?repo_token=$COVERALLS_REPO_TOKEN -d \'{ "payload": { "build_num": $BUILD_NUMBER, "status": "done" } }\''
       }
     }
   }
@@ -24,5 +32,6 @@ pipeline {
     COVERALLS_REPO_TOKEN = 'k80tTMALlmaQOlMs23SvZDavemORnsiSi'
     CI = 'true'
     CI_BRANCH = '$BRANCH_NAME'
+    COVERALLS_PARALLEL = 'true'
   }
 }
