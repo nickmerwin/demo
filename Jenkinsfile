@@ -33,6 +33,6 @@ pipeline {
     CI = 'true'
     CI_BRANCH = '$BRANCH_NAME'
     COVERALLS_PARALLEL = 'true'
-    COVERALLS_BUILD_NUMBER = '$BUILD_NUMBER'
+    CI_BUILD_NUMBER = '$BUILD_NUMBER'
   }
 }
