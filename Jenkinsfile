@@ -11,17 +11,18 @@ pipeline {
         parallel(
           "Job 1": {
             sh 'bundle exec rspec spec/run_spec.rb'
-            
+
           },
           "Job 2": {
             sh 'bundle exec rspec spec/run2_spec.rb'
-            
+
           }
         )
       }
     }
     stage('Coveralls Webhook') {
       steps {
+        sh 'printenv'
         sh 'curl -k $COVERALLS_ENDPOINT/webhook?repo_token=$COVERALLS_REPO_TOKEN -d "payload[build_num]=$BUILD_NUMBER&payload[status]=done"'
       }
     }
@@ -34,5 +35,6 @@ pipeline {
     CI_BRANCH = '$BRANCH_NAME'
     COVERALLS_PARALLEL = 'true'
     CI_BUILD_NUMBER = '$BUILD_NUMBER'
+    CI_PULL_REQUEST = '$ghprbPullId'
   }
 }
