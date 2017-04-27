@@ -22,7 +22,7 @@ pipeline {
     }
     stage('Webhook') {
       steps {
-        sh 'curl -k $COVERALLS_ENDPOINT/webhook?repo_token=$COVERALLS_REPO_TOKEN -d \'{ "payload": { "build_num": $BUILD_NUMBER, "status": "done" } }\''
+        sh 'curl -k $COVERALLS_ENDPOINT/webhook?repo_token=$COVERALLS_REPO_TOKEN -d "payload[build_num]=$BUILD_NUMBER&payload[status]=done"'
       }
     }
   }
