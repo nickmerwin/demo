@@ -11,11 +11,9 @@ pipeline {
         parallel(
           "Job 1": {
             sh 'bundle exec rspec spec/run_spec.rb'
-
           },
           "Job 2": {
             sh 'bundle exec rspec spec/run2_spec.rb'
-
           }
         )
       }
@@ -35,6 +33,5 @@ pipeline {
     CI_BRANCH = '$BRANCH_NAME'
     COVERALLS_PARALLEL = 'true'
     CI_BUILD_NUMBER = '$BUILD_NUMBER'
-    CI_PULL_REQUEST = '$ghprbPullId'
   }
 }
